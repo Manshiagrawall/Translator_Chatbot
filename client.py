@@ -5,7 +5,6 @@ from gtts import gTTS
 
 # Function to get Groq response from the backend
 def get_groq_response(input_text, language):
-    backend_url = "https://serve.herokuapp.com/chain/invoke"
     json_body = {
         "input": {
             "language": language,
@@ -15,8 +14,8 @@ def get_groq_response(input_text, language):
         "kwargs": {}
     }
     try:
-        BACKEND_URL = os.getenv('BACKEND_URL', 'http://localhost:8000')
-        response = requests.post(f"{BACKEND_URL}/chain/invoke", json=json_body)
+        # BACKEND_URL = os.getenv('BACKEND_URL', 'http://localhost:8000')
+        response = requests.post("https://serve.onrender.com/chain/invoke", json=json_body)
         response.raise_for_status()  # Check if the request was successful
         response_json = response.json()
         output = response_json["output"]
