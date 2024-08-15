@@ -7,3 +7,4 @@ langserve
 langchain-core
 langchain-groq
 pyperclip
+gtts
