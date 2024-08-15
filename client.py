@@ -5,6 +5,7 @@ from gtts import gTTS
 
 # Function to get Groq response from the backend
 def get_groq_response(input_text, language):
+    backend_url = "https://serve.herokuapp.com/chain/invoke"
     json_body = {
         "input": {
             "language": language,
